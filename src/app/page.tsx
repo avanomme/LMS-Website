@@ -1,11 +1,28 @@
+"use client"
+
+import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Music, Mic, BookOpen, MapPin, Phone, Mail } from "lucide-react"
+import { Music, Mic, BookOpen, MapPin, Phone, Mail, Menu } from "lucide-react"
+import Link from 'next/link'
 
 export default function LandingPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div className="min-h-screen bg-black text-white">
-      <header className="fixed w-full z-10 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
+      <header className="fixed w-full z-50 bg-black bg-opacity-90 backdrop-blur-md border-b border-gray-800">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
@@ -13,7 +30,7 @@ export default function LandingPage() {
             </div>
             <h1 className="text-2xl font-bold text-white">Linkletter Music School</h1>
           </div>
-          <nav>
+          <nav className="hidden lg:block">
             <ul className="flex space-x-6">
               <li><a href="#about" className="text-gray-300 hover:text-red-500 transition-colors">About</a></li>
               <li><a href="#lessons" className="text-gray-300 hover:text-red-500 transition-colors">Lessons</a></li>
@@ -21,13 +38,26 @@ export default function LandingPage() {
               <li><a href="#contact" className="text-gray-300 hover:text-red-500 transition-colors">Contact</a></li>
             </ul>
           </nav>
+          <Button variant="outline" size="icon" className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Menu className="h-6 w-6" />
+          </Button>
         </div>
+        {isMenuOpen && (
+          <nav className="lg:hidden bg-black bg-opacity-90 backdrop-blur-md">
+            <ul className="flex flex-col items-center py-4">
+              <li className="py-2"><a href="#about" className="text-gray-300 hover:text-red-500 transition-colors">About</a></li>
+              <li className="py-2"><a href="#lessons" className="text-gray-300 hover:text-red-500 transition-colors">Lessons</a></li>
+              <li className="py-2"><a href="#fees" className="text-gray-300 hover:text-red-500 transition-colors">Fees</a></li>
+              <li className="py-2"><a href="#contact" className="text-gray-300 hover:text-red-500 transition-colors">Contact</a></li>
+            </ul>
+          </nav>
+        )}
       </header>
 
       <main>
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-900">
           <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-50"></div>
-          <div className="relative z-20 text-center">
+          <div className="relative z-20 text-center px-4">
             <h2 className="text-5xl md:text-7xl font-bold mb-4 text-white">Linkletter Music School</h2>
             <p className="text-xl md:text-2xl mb-8 text-gray-300">Inspiring musical excellence since 1987</p>
             <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
@@ -50,15 +80,15 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-              <div className="md:w-1-2 md:pl-8">
+              <div className="md:w-1/2 md:pl-8">
                 <p className="text-lg mb-4 text-gray-300">
                   Founded in 1987, Linkletter Music School has been a cornerstone of musical education in Charlottetown, Prince Edward Island. We offer private lessons in piano, voice, and theory, catering to students of all ages and skill levels.
                 </p>
                 <p className="text-lg mb-4 text-gray-300">
-                  Our mission is to provide high-quality music education in a supportive and inspiring environment. We believe in nurturing each student's unique musical journey, whether they're pursuing music for personal enjoyment or professional aspirations.
+                  Our mission is to provide high-quality music education in a supportive and inspiring environment. We believe in nurturing each student&apos;s unique musical journey, whether they&apos;re pursuing music for personal enjoyment or professional aspirations.
                 </p>
                 <p className="text-lg text-gray-300">
-                  With our experienced and passionate instructor, Lori, we're committed to helping our students discover the joy of music and reach their full potential.
+                  With our experienced and passionate instructor, Lori, we&apos;re committed to helping our students discover the joy of music and reach their full potential.
                 </p>
               </div>
             </div>
