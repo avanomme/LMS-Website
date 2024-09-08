@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Music, Mic, BookOpen, MapPin, Phone, Mail, Menu } from "lucide-react"
-import Link from 'next/link'
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
