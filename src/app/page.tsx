@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Piano, Mic, BookOpen, MapPin, Phone, Mail, Music } from "lucide-react"
+import { Music, Mic, BookOpen, MapPin, Phone, Mail } from "lucide-react"
 
 export default function LandingPage() {
   return (
@@ -70,7 +70,7 @@ export default function LandingPage() {
             <h2 className="text-4xl font-bold mb-12 text-center text-white">Our Lessons</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { icon: Piano, title: "Piano Lessons", description: "Learn classical, jazz, or contemporary styles with our experienced piano instructor." },
+                { icon: Music, title: "Piano Lessons", description: "Learn classical, jazz, or contemporary styles with our experienced piano instructor." },
                 { icon: Mic, title: "Voice Lessons", description: "Develop your vocal technique, expand your range, and build confidence in your singing abilities." },
                 { icon: BookOpen, title: "Theory Lessons", description: "Gain a deeper understanding of music with lessons in harmony, rhythm, and composition." },
               ].map((lesson, index) => (
