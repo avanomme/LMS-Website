@@ -2,9 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Music, Mic, BookOpen, MapPin, Phone, Mail, Menu } from "lucide-react"
-import Link from 'next/link'
+import { Music } from "lucide-react"
 import { SignUpForm } from '@/components/SignUpForm'
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 

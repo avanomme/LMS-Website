@@ -38,7 +38,7 @@ export function SignUpForm({ onClose }: { onClose: () => void }) {
     }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       const response = await fetch('/api/send-email', {
@@ -91,54 +91,3 @@ export function SignUpForm({ onClose }: { onClose: () => void }) {
       
       <div>
         <Label htmlFor="phone">Phone Number</Label>
-        <Input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
-      </div>
-      
-      <div>
-        <Label>Lesson Type</Label>
-        <RadioGroup name="lessonType" value={formData.lessonType} onValueChange={(value) => setFormData(prev => ({ ...prev, lessonType: value }))}>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="voice" id="voice" />
-            <Label htmlFor="voice">Voice</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="piano" id="piano" />
-            <Label htmlFor="piano">Piano</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="theory" id="theory" />
-            <Label htmlFor="theory">Theory</Label>
-          </div>
-        </RadioGroup>
-      </div>
-      
-      <div>
-        <Label>Lesson Length</Label>
-        <RadioGroup name="lessonLength" value={formData.lessonLength} onValueChange={(value) => setFormData(prev => ({ ...prev, lessonLength: value }))}>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="30" id="30min" />
-            <Label htmlFor="30min">30 minutes</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="45" id="45min" />
-            <Label htmlFor="45min">45 minutes</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="60" id="60min" />
-            <Label htmlFor="60min">60 minutes</Label>
-          </div>
-        </RadioGroup>
-      </div>
-      
-      <div className="flex items-center space-x-2">
-        <Checkbox id="agreeToPolicy" name="agreeToPolicy" checked={formData.agreeToPolicy} onCheckedChange={(checked) => setFormData(prev => ({ ...prev, agreeToPolicy: checked as boolean }))} />
-        <Label htmlFor="agreeToPolicy">I agree to the payment policy</Label>
-      </div>
-      
-      <div className="flex justify-end space-x-2">
-        <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
-        <Button type="submit">Submit</Button>
-      </div>
-    </form>
-  )
-}
