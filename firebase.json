@@ -11,14 +11,7 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ],
-    "redirects": [
-        {
-          "source": "/",
-          "destination": "https://www.linklettermusicschool.ca",
-          "type": 301
-        }
-      ]
+    ]
   }
   
 }
