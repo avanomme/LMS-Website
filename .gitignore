@@ -34,3 +34,5 @@ next-env.d.ts
 
 # Firebase
 .firebase/
+
+.github/workflows/firebase-hosting-merge.yml
