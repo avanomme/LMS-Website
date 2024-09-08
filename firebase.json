@@ -15,7 +15,7 @@
     "redirects": [
         {
           "source": "/",
-          "destination": "https://linklettermusicschool.ca",
+          "destination": "https://www.linklettermusicschool.ca",
           "type": 301
         }
       ]
